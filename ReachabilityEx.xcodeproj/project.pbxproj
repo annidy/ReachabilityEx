@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8428FEC3186D80EE0040EADB /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8428FEC2186D80EE0040EADB /* CoreTelephony.framework */; };
+		8428FEC5186D81D60040EADB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8428FEC4186D81D60040EADB /* SystemConfiguration.framework */; };
 		84A4A310186D5E1100AEAD27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A4A30F186D5E1100AEAD27 /* Foundation.framework */; };
 		84A4A312186D5E1100AEAD27 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A4A311186D5E1100AEAD27 /* CoreGraphics.framework */; };
 		84A4A314186D5E1100AEAD27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A4A313186D5E1100AEAD27 /* UIKit.framework */; };
@@ -21,6 +23,8 @@
 		84A4A331186D5E1100AEAD27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A4A313186D5E1100AEAD27 /* UIKit.framework */; };
 		84A4A339186D5E1100AEAD27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84A4A337186D5E1100AEAD27 /* InfoPlist.strings */; };
 		84A4A33B186D5E1100AEAD27 /* ReachabilityExTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A4A33A186D5E1100AEAD27 /* ReachabilityExTests.m */; };
+		84A4A346186D5E3100AEAD27 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A4A345186D5E3100AEAD27 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		84A4A349186D5F2500AEAD27 /* Reachability+XG.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A4A348186D5F2500AEAD27 /* Reachability+XG.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8428FEC2186D80EE0040EADB /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = ../../../../Applications/Xcode4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = "<group>"; };
+		8428FEC4186D81D60040EADB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = ../../../../Applications/Xcode4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<group>"; };
 		84A4A30C186D5E1100AEAD27 /* ReachabilityEx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReachabilityEx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A4A30F186D5E1100AEAD27 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		84A4A311186D5E1100AEAD27 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +59,10 @@
 		84A4A336186D5E1100AEAD27 /* ReachabilityExTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ReachabilityExTests-Info.plist"; sourceTree = "<group>"; };
 		84A4A338186D5E1100AEAD27 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		84A4A33A186D5E1100AEAD27 /* ReachabilityExTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReachabilityExTests.m; sourceTree = "<group>"; };
+		84A4A344186D5E3100AEAD27 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		84A4A345186D5E3100AEAD27 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		84A4A347186D5F2500AEAD27 /* Reachability+XG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Reachability+XG.h"; sourceTree = "<group>"; };
+		84A4A348186D5F2500AEAD27 /* Reachability+XG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Reachability+XG.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8428FEC5186D81D60040EADB /* SystemConfiguration.framework in Frameworks */,
+				8428FEC3186D80EE0040EADB /* CoreTelephony.framework in Frameworks */,
 				84A4A312186D5E1100AEAD27 /* CoreGraphics.framework in Frameworks */,
 				84A4A314186D5E1100AEAD27 /* UIKit.framework in Frameworks */,
 				84A4A310186D5E1100AEAD27 /* Foundation.framework in Frameworks */,
@@ -101,6 +113,8 @@
 		84A4A30E186D5E1100AEAD27 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8428FEC4186D81D60040EADB /* SystemConfiguration.framework */,
+				8428FEC2186D80EE0040EADB /* CoreTelephony.framework */,
 				84A4A30F186D5E1100AEAD27 /* Foundation.framework */,
 				84A4A311186D5E1100AEAD27 /* CoreGraphics.framework */,
 				84A4A313186D5E1100AEAD27 /* UIKit.framework */,
@@ -112,6 +126,10 @@
 		84A4A315186D5E1100AEAD27 /* ReachabilityEx */ = {
 			isa = PBXGroup;
 			children = (
+				84A4A344186D5E3100AEAD27 /* Reachability.h */,
+				84A4A345186D5E3100AEAD27 /* Reachability.m */,
+				84A4A347186D5F2500AEAD27 /* Reachability+XG.h */,
+				84A4A348186D5F2500AEAD27 /* Reachability+XG.m */,
 				84A4A31E186D5E1100AEAD27 /* AppDelegate.h */,
 				84A4A31F186D5E1100AEAD27 /* AppDelegate.m */,
 				84A4A321186D5E1100AEAD27 /* Main.storyboard */,
@@ -199,6 +217,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = FengXing;
 				TargetAttributes = {
+					84A4A30B186D5E1100AEAD27 = {
+						DevelopmentTeam = 6V6YNNVBJN;
+					};
 					84A4A32C186D5E1100AEAD27 = {
 						TestTargetID = 84A4A30B186D5E1100AEAD27;
 					};
@@ -251,7 +272,9 @@
 			files = (
 				84A4A326186D5E1100AEAD27 /* ViewController.m in Sources */,
 				84A4A320186D5E1100AEAD27 /* AppDelegate.m in Sources */,
+				84A4A346186D5E3100AEAD27 /* Reachability.m in Sources */,
 				84A4A31C186D5E1100AEAD27 /* main.m in Sources */,
+				84A4A349186D5F2500AEAD27 /* Reachability+XG.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,12 +399,19 @@
 		84A4A33F186D5E1100AEAD27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lian Peng (72Y4DW8983)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lian Peng (72Y4DW8983)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ReachabilityEx/ReachabilityEx-Prefix.pch";
 				INFOPLIST_FILE = "ReachabilityEx/ReachabilityEx-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "25C25DFE-57FB-463E-A591-5402EA0B79E8";
+				SDKROOT = iphoneos6.1;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -389,12 +419,19 @@
 		84A4A340186D5E1100AEAD27 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ReachabilityEx/ReachabilityEx-Prefix.pch";
 				INFOPLIST_FILE = "ReachabilityEx/ReachabilityEx-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "96572B27-17C1-4923-B9B6-1EEF6F8F2175";
+				SDKROOT = iphoneos6.1;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -460,6 +497,7 @@
 				84A4A340186D5E1100AEAD27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84A4A341186D5E1100AEAD27 /* Build configuration list for PBXNativeTarget "ReachabilityExTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +506,7 @@
 				84A4A343186D5E1100AEAD27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
