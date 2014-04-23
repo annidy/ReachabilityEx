@@ -11,7 +11,6 @@
 
 @implementation Reachability (XG)
 
-/// iOS 7新增方法
 - (BOOL)dataNetworkTypeFromTelephony:(NetworkStatus *)status
 {
     static NSString *access = nil;
@@ -19,7 +18,7 @@
     dispatch_once(&onceToken, ^{
         CTTelephonyNetworkInfo *telephonyInfo = [CTTelephonyNetworkInfo new];
         @try {
-            access = [telephonyInfo valueForKey:@"currentRadioAccessTechnology"];
+            access = [[telephonyInfo valueForKey:@"currentRadioAccessTechnology"] retain];
         }
         @catch (NSException *exception) {
             access = nil;
@@ -31,16 +30,25 @@
                                                          queue:nil
                                                     usingBlock:^(NSNotification *note)
         {
-            access = [telephonyInfo valueForKey: @"currentRadioAccessTechnology"];
+            [access release];
+            access = [[telephonyInfo valueForKey: @"currentRadioAccessTechnology"] retain];
             NSLog(@"New Radio Access Technology: %@", access);
         }];
     });
 
-    NSLog(@"Telephony %@", access);
-    if ([access isEqualToString:@"CTRadioAccessTechnologyEdge"]) {
+    if ([access isEqualToString:@"CTRadioAccessTechnologyEdge"] || [access isEqualToString:@"CTRadioAccessTechnologyGPRS"]) {
         *status = ReachableVia2G;
-    } else if ([access isEqualToString:@"CTRadioAccessTechnologyHSDPA"]) {
+    } else if ([access isEqualToString:@"CTRadioAccessTechnologyHSDPA"] ||
+               [access isEqualToString:@"CTRadioAccessTechnologyHSUPA"] ||
+               [access isEqualToString:@"CTRadioAccessTechnologyeHRPD"] ||
+               [access isEqualToString:@"CTRadioAccessTechnologyWCDMA"] ||
+               [access isEqualToString:@"CTRadioAccessTechnologyCDMA1x"] ||
+               [access isEqualToString:@"CTRadioAccessTechnologyCDMAEVDORev0"] ||
+               [access isEqualToString:@"CTRadioAccessTechnologyCDMAEVDORevA"] ||
+               [access isEqualToString:@"CTRadioAccessTechnologyCDMAEVDORevB"]) {
         *status = ReachableVia3G;
+    } else if ([access isEqualToString:@"CTRadioAccessTechnologyLTE"]) {
+        *status = ReachableViaLTE;
     } else {
         return NO;
     }
@@ -52,7 +60,7 @@
     UIApplication *app = [UIApplication sharedApplication];
     NSArray *subviews = [[[app valueForKey:@"statusBar"] valueForKey:@"foregroundView"] subviews];
     NSNumber *dataNetworkItemView = nil;
-    // UIStatusBarDataNetworkItemView 是使用api，这里简单处理一下
+    
     NSString *UIStatusBarDataNetworkItemView = [NSString stringWithFormat:@"%@%@%@", @"UIStatus", @"BarDataNet", @"workItemView"];
     for (id subview in subviews) {
         if([subview isKindOfClass:[NSClassFromString(UIStatusBarDataNetworkItemView) class]]) {
@@ -70,10 +78,12 @@
     5 = Wifi
     */
     
-    NetworkStatus netType = NotReachable;
+    NetworkStatus netType = ReachableViaWWAN;
     NSNumber * num = [dataNetworkItemView valueForKey:@"dataNetworkType"];
     int n = [num intValue];
-    if (n == 1) {
+    if (n == 0) {
+        netType = NotReachable;
+    } else if (n == 1) {
         netType = ReachableVia2G;
     } else if (n == 2) {
         netType = ReachableVia3G;
@@ -84,6 +94,7 @@
     } else if (n == 5) {
         netType = ReachableViaWiFi;
     }
+    NSLog(@"运营网络 ID = %d", n);
     return netType;
 }
 
